@@ -24,6 +24,9 @@ Phone: 0401234567
 Email: anna.virtanen@example.com
 """
 
+from datetime import datetime, time
+
+
 def main():
     # Define the file name directly in the code
     reservations = "reservations.txt"
@@ -32,21 +35,35 @@ def main():
     with open(reservations, "r", encoding="utf-8") as f:
         reservation = f.read().strip()
 
-    # Print the reservation to the console
-    print(reservation)
+    reservation = reservation.split('|')
+    reservationNum = int(reservation[0])
+    booker = reservation[1]
 
-    # Try these
-    #print(reservation.split('|'))
-    #reservationId = reservation.split('|')[0]
-    #print(reservationId)
-    #print(type(reservationId))
-    """
-    The above should have printed the number 123,
-    which is by default text.
+    day = datetime.strptime(reservation[2], "%Y-%m-%d").date()
+    finnish_day = day.strftime("%d.%m.%Y")
 
-    You can also try changing [0] to [1]
-    and test what changes.
-    """
+    time = datetime.strptime(reservation[3], "%H:%M").time()
+    finnish_time = time.strftime("%H.%M")
+
+    hours = int(reservation[4])
+    hourlyPrice = float(reservation[5])
+    totalPrice = hourlyPrice * hours
+    paid = bool(reservation[6])
+    location = reservation[7]
+    phone = reservation[8]
+    email = reservation[9]
+
+    print(f"Reservation number: {reservationNum}")
+    print(f"Booker: {booker}")
+    print(f"Date: {finnish_day}")
+    print(f"Start time: {finnish_time}")
+    print(f"Number of hours: {hours}")
+    print(f"Hourly price: {hourlyPrice:.2f}".replace(".", ",") + " €")
+    print(f"Total price: {totalPrice:.2f}".replace(".", ",") + " €")
+    print(f"Paid: {'Yes' if paid else 'No'}")
+    print(f"Location: {location}")
+    print(f"Phone: {phone}")
+    print(f"Email: {email}")
 
 if __name__ == "__main__":
     main()
