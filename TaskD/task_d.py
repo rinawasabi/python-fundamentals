@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Rina Poutiainen-Uekusa
+# License: MIT
+
 import csv
 from datetime import datetime
 
