@@ -9,6 +9,7 @@ finDays = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauan
 
 def read_data(filename: str) -> list[list[str]]:
     """Reads the CSV file and returns all rows."""
+    
     rows = []
     with open(filename, "r", encoding="utf-8", newline="") as f:
         reader = csv.reader(f, delimiter=";")
@@ -19,16 +20,19 @@ def read_data(filename: str) -> list[list[str]]:
 
 def wh_to_kwh(wh: float) -> float:
     """Converts Wh to kWh."""
+    
     return wh / 1000.0
 
 
 def format_comma(value: float) -> str:
     """Formats number with 2 decimals and comma as decimal separator."""
+    
     return f"{value:.2f}".replace(".", ",")
 
 
 def daily_totals(rows: list[list[str]]) -> dict:
     """Returns daily totals."""
+    
     daily = {}
 
     for row in rows[1:]:
@@ -51,7 +55,6 @@ def week_section(week_no: int, daily: dict) -> str:
     """Builds the weekly electricity consumption and production report section as text."""
 
     lines: list[str] = []
-
     lines.append(f"Week {week_no} electricity consumption and production (kWh, by phase)")
     lines.append("Day          Date        Consumption [kWh]               Production [kWh]")
     lines.append("            (dd.mm.yyyy)  v1      v2      v3             v1     v2     v3")
@@ -78,6 +81,7 @@ def week_section(week_no: int, daily: dict) -> str:
 
 def write_report(filename: str, text: str) -> None:
     """Writes the report text to a file."""
+    
     with open(filename, "w", encoding="utf-8") as f:
         f.write(text)
 
