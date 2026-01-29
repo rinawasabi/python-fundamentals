@@ -7,7 +7,7 @@ from datetime import datetime
 finDays = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"]
 
 
-def read_data(filename: str) -> list:
+def read_data(filename: str) -> list[list[str]]:
     """Reads the CSV file and returns all rows."""
     rows = []
     with open(filename, "r", encoding="utf-8", newline="") as f:
