@@ -2,6 +2,5 @@
 
 This repository is for the course **Introduction to Python**.
 
-The course covered the basics of programming using Python, including variables, data types, operators, branching, looping, arrays and functions.
-The course also introduced the basics of object-oriented programming with Python. The topics included classes, objects, data members, operations, access specifiers and relationships between objects, such as association, aggregation, composition and inheritance.
-In addition, GUI programming with Python using Tkinter was covered. The topics included components, layout and event handling.
+The course covered the fundamentals of Python programming, including variables, data types, operators, branching, loops, arrays, and functions.
+It also introduced object-oriented programming concepts and GUI development with Tkinter.
